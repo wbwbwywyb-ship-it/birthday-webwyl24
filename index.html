@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Merry Christmas WebGL</title>
+    <title>Merry Christmas WebGL - 24th Birthday</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -16,7 +16,10 @@
         overflow: hidden;
       }
       .font-cursive {
-        font-family: 'Dancing+Script', cursive;
+        font-family: 'Dancing Script', cursive;
+      }
+      .mirror {
+        transform: scaleX(-1);
       }
     </style>
   <script type="importmap">
@@ -25,13 +28,15 @@
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/",
+    "zustand": "https://esm.sh/zustand@^5.0.9",
     "three": "https://esm.sh/three@^0.182.0",
+    "@mediapipe/tasks-vision": "https://esm.sh/@mediapipe/tasks-vision@^0.10.22-rc.20250304",
     "@react-three/fiber": "https://esm.sh/@react-three/fiber@^9.4.2",
+    "gsap": "https://esm.sh/gsap@^3.14.2",
     "@react-three/drei": "https://esm.sh/@react-three/drei@^10.7.7",
     "@react-three/postprocessing": "https://esm.sh/@react-three/postprocessing@^3.0.4",
-    "zustand": "https://esm.sh/zustand@^5.0.9",
-    "@mediapipe/tasks-vision": "https://esm.sh/@mediapipe/tasks-vision@^0.10.22-rc.20250304",
-    "gsap": "https://esm.sh/gsap@^3.14.2"
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.0"
   }
 }
 </script>
@@ -39,6 +44,6 @@
 </head>
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
