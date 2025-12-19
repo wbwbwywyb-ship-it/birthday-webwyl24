@@ -1,0 +1,7 @@
+{
+  "name": "Merry Christmas WebGL - 24th Birthday Edition",
+  "description": "An interactive 3D WebGL experience featuring an explosive particle cake, hand-gesture recognition, and a dynamic photo nebula wall.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
