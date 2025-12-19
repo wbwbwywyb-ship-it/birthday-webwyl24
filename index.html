@@ -21,6 +21,17 @@
       .mirror {
         transform: scaleX(-1);
       }
+      /* Loading dots animation */
+      .loader-dots div {
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      }
+      .loader-dots div:nth-child(1) { left: 8px; animation: loader-dots1 0.6s infinite; }
+      .loader-dots div:nth-child(2) { left: 8px; animation: loader-dots2 0.6s infinite; }
+      .loader-dots div:nth-child(3) { left: 32px; animation: loader-dots2 0.6s infinite; }
+      .loader-dots div:nth-child(4) { left: 56px; animation: loader-dots3 0.6s infinite; }
+      @keyframes loader-dots1 { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+      @keyframes loader-dots3 { 0% { transform: scale(1); } 100% { transform: scale(0); } }
+      @keyframes loader-dots2 { 0% { transform: translate(24px, 0); } }
     </style>
   <script type="importmap">
 {
@@ -35,12 +46,11 @@
     "gsap": "https://esm.sh/gsap@^3.14.2",
     "@react-three/drei": "https://esm.sh/@react-three/drei@^10.7.7",
     "@react-three/postprocessing": "https://esm.sh/@react-three/postprocessing@^3.0.4",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
-    "vite": "https://esm.sh/vite@^7.3.0"
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
