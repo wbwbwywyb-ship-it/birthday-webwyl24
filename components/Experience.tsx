@@ -1,11 +1,10 @@
 
 import React, { Suspense, useEffect } from 'react';
-import { Stars, Sparkles, Float, Text, Center } from '@react-three/drei';
+import { Stars, Sparkles, Float, Text, Center, useProgress } from '@react-three/drei';
 import { ParticleField } from './ParticleField';
 import { PhotoWall } from './PhotoWall';
 import { useStore } from '../store';
 import { Phase, Gesture } from '../types';
-import * as THREE from 'three';
 import { getOrnamentColors } from '../utils/math';
 
 const Ornaments: React.FC = () => {
@@ -32,7 +31,6 @@ const Ornaments: React.FC = () => {
           </mesh>
         </Float>
       ))}
-      {/* Candle */}
       <group position={[0, 1.2, 0]}>
         <mesh>
           <boxGeometry args={[0.1, 0.6, 0.1]} />
@@ -53,7 +51,16 @@ const Ornaments: React.FC = () => {
 };
 
 export const Experience: React.FC = () => {
-  const { phase, gesture, setPhase } = useStore();
+  const { phase, gesture, setPhase, setIsLoading } = useStore();
+  const { progress } = useProgress();
+
+  useEffect(() => {
+    // 当所有资源加载完成（progress 为 100）时隐藏加载页
+    if (progress === 100) {
+      const timer = setTimeout(() => setIsLoading(false), 800);
+      return () => clearTimeout(timer);
+    }
+  }, [progress, setIsLoading]);
 
   useEffect(() => {
     if (gesture === Gesture.OPEN && phase === Phase.CAKE) {
@@ -67,7 +74,6 @@ export const Experience: React.FC = () => {
   return (
     <>
       <color attach="background" args={['#020205']} />
-      
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       <Sparkles count={200} scale={20} size={2} speed={0.4} opacity={0.5} />
 
@@ -91,7 +97,7 @@ export const Experience: React.FC = () => {
         </Center>
       </Suspense>
 
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#ffaa55" />
       <pointLight position={[-10, 5, -5]} intensity={1} color="#55aaff" />
       <spotLight 
