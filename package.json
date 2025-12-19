@@ -2,30 +2,33 @@
 {
   "name": "merry-christmas-webgl",
   "version": "1.0.0",
-  "description": "An interactive 3D WebGL experience for 24th birthday.",
-  "main": "index.tsx",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "npx serve .",
-    "dev": "npx serve ."
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "threejs",
-    "react",
-    "webgl",
-    "mediapipe",
-    "gesture-control"
-  ],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
-    "three": "^0.182.0",
+    "@mediapipe/tasks-vision": "^0.10.22-rc.20250304",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.2",
+    "@react-three/postprocessing": "^3.0.4",
+    "gsap": "^3.14.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "zustand": "^5.0.9",
-    "gsap": "^3.14.2",
-    "@react-three/fiber": "^9.4.2",
-    "@react-three/drei": "^10.7.7",
-    "@react-three/postprocessing": "^3.0.4",
-    "@mediapipe/tasks-vision": "^0.10.22-rc.20250304"
+    "three": "^0.182.0",
+    "zustand": "^5.0.9"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.170.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^6.0.0"
   }
 }
